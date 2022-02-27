@@ -25,17 +25,42 @@ namespace TheGame
 
         int damage = 1, stamina = 1, resistance = 1;
 
+        
 
-        
-        
         public Form1()
         {
             InitializeComponent();
             
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+
+            foreach(Control ovladac in this.Controls)
+            {
+
+                if (ovladac is PictureBox)
+                {
+                    BackColor = Color.Transparent;
+                }
+
+                if (ovladac is Label)
+                {
+
+                    (ovladac as Label).ForeColor = Color.White;
+
+                }
+
+
+            }
+
+            button5.BackColor = Color.Transparent;
+            button6.BackColor = Color.Transparent;
+            button7.BackColor = Color.Transparent;
+
+
 
         }
 
@@ -44,6 +69,18 @@ namespace TheGame
             string nickname = textBox1.Text;
             textBox1.Enabled = false;
             button1.Enabled = false;
+            
+            foreach(Control ovladac in this.Controls)
+            {
+
+                if (ovladac is Button)
+                {
+
+                    (ovladac as Button).Enabled = true;
+
+                }
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,6 +133,13 @@ namespace TheGame
             {
                 MessageBox.Show("You do not have enough gold!");
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+            BackColor = Color.Transparent;
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
