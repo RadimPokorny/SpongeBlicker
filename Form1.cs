@@ -25,12 +25,16 @@ namespace TheGame
 
         int damage = 1, stamina = 1, resistance = 1;
 
-        
 
+        
         public Form1()
         {
             InitializeComponent();
-            
+            button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            Font LargeFont = new Font("Arial", 28);
+            label15.Font = LargeFont;
 
         }
 
@@ -59,7 +63,7 @@ namespace TheGame
             button5.BackColor = Color.Transparent;
             button6.BackColor = Color.Transparent;
             button7.BackColor = Color.Transparent;
-
+            button3.BackColor = Color.Transparent;
 
 
         }
@@ -89,10 +93,15 @@ namespace TheGame
             button1.Enabled = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
-            gold_count+= 1*(pickaxe_level);
-            label1.Text = gold_count.ToString();
+            label15.Visible = true;
+            gold_count += 1*(pickaxe_level);
+            label1.Text = gold_count.ToString();         
+            label15.Text = "-"+damage.ToString();
+            await Task.Delay(200);
+            label15.Visible = false;
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -164,6 +173,11 @@ namespace TheGame
 
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             if (gold_count >= damage_price)
@@ -182,6 +196,11 @@ namespace TheGame
             {
                 MessageBox.Show("You do not have enough gold!");
             }
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
