@@ -178,6 +178,11 @@ namespace TheGame
 
         }
 
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button5_Click(object sender, EventArgs e)
         {
             if (gold_count >= damage_price)
