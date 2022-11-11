@@ -22,6 +22,9 @@ namespace TheGame
         long damage_price = 1;
         long stamina_price = 1;
         long resistance_price = 1;
+        long hp;
+        long previous;
+        int level;
 
         int damage = 1, stamina = 1, resistance = 1;
 
@@ -35,6 +38,10 @@ namespace TheGame
             button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
             Font LargeFont = new Font("Arial", 28);
             label15.Font = LargeFont;
+            hp = 100;
+            previous = 100;
+            level = 1;
+
 
         }
 
@@ -45,24 +52,24 @@ namespace TheGame
             foreach(Control ovladac in this.Controls)
             {
 
-                if (ovladac is PictureBox)
-                {
-                    BackColor = Color.Transparent;
-                }
-
                 if (ovladac is Label)
                 {
 
                     (ovladac as Label).ForeColor = Color.White;
-
                 }
 
 
             }
 
-            button5.BackColor = Color.Transparent;
-            button6.BackColor = Color.Transparent;
-            button7.BackColor = Color.Transparent;
+            label1.BackColor = Color.Transparent;
+            label16.BackColor = Color.Transparent;
+            label17.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            label15.BackColor = Color.Transparent;
+            label18.BackColor = Color.Transparent;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox2.BackColor = Color.Transparent;
+
             button3.BackColor = Color.Transparent;
 
 
@@ -73,6 +80,8 @@ namespace TheGame
             string nickname = textBox1.Text;
             textBox1.Enabled = false;
             button1.Enabled = false;
+            label17.Visible = true;
+            label17.Text = "Hello, "+textBox1.Text + ", I´ll give you some golds, if you will hit me..";
             
             foreach(Control ovladac in this.Controls)
             {
@@ -91,17 +100,37 @@ namespace TheGame
         {
             textBox1.Enabled = true;
             button1.Enabled = true;
+            button2.Enabled = false;
+            button3.Enabled = false;
         }
 
         private async void button3_Click(object sender, EventArgs e)
         {
+
+            button3.Image = Properties.Resources.spangatisichit;
             label15.Visible = true;
             gold_count += 1*(pickaxe_level);
-            label1.Text = gold_count.ToString();         
+                    
             label15.Text = "-"+damage.ToString();
             await Task.Delay(200);
+            button3.Image = Properties.Resources.spangatisic;
             label15.Visible = false;
+            hp -= damage;
+            
+            
+            if(hp > 0) label16.Text = "HP: "+hp.ToString();
 
+            else 
+            {
+                gold_count += previous;
+                hp = previous * 2;
+                label16.Text = "HP: " + hp.ToString();
+                label18.Text = "Level "+level.ToString();
+                MessageBox.Show("Congratulations! You beat the boss level " + level.ToString() + ". Your reward is " + previous.ToString() + " golds");
+                previous = hp;
+                level++;
+            }
+            label1.Text = gold_count.ToString();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -179,6 +208,11 @@ namespace TheGame
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }
