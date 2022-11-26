@@ -11,7 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		ResTempl1.rct = ResTempl1.rct
 		spangatisic.png = spangatisic.png
 		spangatisichit.png = spangatisichit.png
+		sword.png = sword.png
 	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{D3C1C640-9522-415D-86FC-F85F5B81EFB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +26,8 @@ Global
 		{42BC23B7-B33D-46D9-BBF2-77F14ADCC5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BC23B7-B33D-46D9-BBF2-77F14ADCC5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42BC23B7-B33D-46D9-BBF2-77F14ADCC5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3C1C640-9522-415D-86FC-F85F5B81EFB4}.Debug|Any CPU.ActiveCfg = Release
+		{D3C1C640-9522-415D-86FC-F85F5B81EFB4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

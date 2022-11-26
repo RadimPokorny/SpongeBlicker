@@ -14,8 +14,8 @@ namespace TheGame
     {
         
         long gold_count = 0;
-        short pickaxe_level = 1;
-        long pickaxe_price = 50;
+        short sword_level = 1;
+        long sword_price = 50;
         int damage_index = 1;
         int stamina_index = 1;
         int resistance_index = 1;
@@ -106,10 +106,14 @@ namespace TheGame
 
         private async void button3_Click(object sender, EventArgs e)
         {
-
+            if (handled)
+            {
+                handled = false;
+                return;
+            }
             button3.Image = Properties.Resources.spangatisichit;
             label15.Visible = true;
-            gold_count += 1*(pickaxe_level);
+            gold_count += 1*(sword_level);
                     
             label15.Text = "-"+damage.ToString();
             await Task.Delay(200);
@@ -184,12 +188,12 @@ namespace TheGame
         {
             
 
-            if(gold_count >= pickaxe_price)
+            if(gold_count >= sword_price)
             {
-                gold_count -= pickaxe_price;
-                pickaxe_level++;
-                pickaxe_price = (pickaxe_price * 3);
-                label2.Text = "Pickaxe Level: " + pickaxe_level.ToString();
+                gold_count -= sword_price;
+                sword_level++;
+                sword_price = (sword_price * 3);
+                label2.Text = "Sword Level: " + sword_level.ToString();
                 label1.Text = gold_count.ToString();
             }
 
@@ -198,7 +202,7 @@ namespace TheGame
                 MessageBox.Show("You do not have enough gold!");
             }
 
-            button4.Text = "Upgrade Pickaxe (Cost " + pickaxe_price.ToString() + " Golds)";
+            button4.Text = "Upgrade sword (Cost " + sword_price.ToString() + " Golds)";
 
         }
 
@@ -213,6 +217,20 @@ namespace TheGame
         }
 
         private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+        bool handled;
+
+        private void button3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                handled = true;
+            }
+        }
+
+        private void button3_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

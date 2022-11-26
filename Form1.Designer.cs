@@ -139,13 +139,14 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(99, 64);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Upgrade Pickaxe (Cost 50 Golds)";
+            this.button4.Text = "Upgrade sword (Cost 50 Golds)";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(33, 299);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 50);
@@ -157,9 +158,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 422);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Pickaxe Level: 1";
+            this.label2.Text = "Sword Level: 1";
             // 
             // label15
             // 
@@ -186,6 +187,8 @@
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button3_KeyDown);
+            this.button3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.button3_KeyPress);
             // 
             // label16
             // 
@@ -210,6 +213,7 @@
             // 
             // label18
             // 
+            this.label18.AutoEllipsis = true;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label18.Location = new System.Drawing.Point(472, 25);
